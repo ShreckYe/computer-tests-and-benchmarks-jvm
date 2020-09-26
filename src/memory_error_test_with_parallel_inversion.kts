@@ -2,11 +2,10 @@
 import java.util.*
 import kotlin.random.Random
 
-val DEFAULT_NUM_BYTES = 1 shl 30
-val numBytes = args.getOrNull(0)?.toInt() ?: DEFAULT_NUM_BYTES
-
+val DEFAULT_NUM_BYTES = 1L shl 30
+val numBytes = args.getOrNull(0)?.toLong() ?: DEFAULT_NUM_BYTES
 println("Initializing an array of $numBytes bytes...")
-val array = LongArray(numBytes shr 3) { Random.nextLong() }
+val array = LongArray(Math.toIntExact(numBytes shr 3)) { Random.nextLong() }
 fun LongArray.parallelInv(): LongArray =
     Arrays.stream(this).parallel().map { it.inv() }.toArray()
 
