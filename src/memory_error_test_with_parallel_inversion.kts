@@ -2,7 +2,7 @@
 import java.util.*
 import kotlin.random.Random
 
-val DEFAULT_NUM_BYTES = 1 shl 20
+val DEFAULT_NUM_BYTES = 1 shl 30
 val numBytes = args.getOrNull(0)?.toInt() ?: DEFAULT_NUM_BYTES
 
 println("Initializing an array of $numBytes bytes...")
